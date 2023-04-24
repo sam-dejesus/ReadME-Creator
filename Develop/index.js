@@ -1,8 +1,7 @@
-// TODO: Include packages needed for this application
-const inquirer = require('inquirer');
-const fs = require('fs');
-const markdown = require('./utils/generateMarkdown')
-// TODO: Create an array of questions for user input
+const inquirer = require('inquirer')
+const fs = require('fs')
+const generateMarkdown = require('./utils/generateMarkdown')
+
 const questions = [
     {
         type: 'input',
@@ -19,40 +18,39 @@ const questions = [
         name: 'tableOfContents',
         message: 'Select the sections you want to include in the table of contents:',
         choices: [
-          {
-            name: 'Installation',
-            value: 'installation'
-          },
-          {
-            name: 'Usage',
-            value: 'usage'
-          },
-          {
-            name: 'Credits',
-            value: 'credits'
-          },
-          {
-            name: 'License',
-            value: 'license'
-          },
-         {
-            name: 'Features',
-            value: 'features'
-         },
-         {
-            name:'How-to-contribute',
-            value: 'how to contribute'
-         },
-         {
-            name:'Test',
-            value:'test'
-         }
-
+            {
+                name: 'Installation',
+                value: 'installation'
+            },
+            {
+                name: 'Usage',
+                value: 'usage'
+            },
+            {
+                name: 'Credits',
+                value: 'credits'
+            },
+            {
+                name: 'License',
+                value: 'license'
+            },
+            {
+                name: 'Features',
+                value: 'features'
+            },
+            {
+                name:'How-to-contribute',
+                value: 'how to contribute'
+            },
+            {
+                name:'Test',
+                value:'test'
+            }
         ]
     },
     {
         type: 'input',
-        name:'Installation',
+        name:'installation',
         message:'Is there any installation required?'
     },
     {
@@ -63,61 +61,50 @@ const questions = [
     {
         type: 'input',
         name:'credits',
-        message:'anyone you want to credit?'
+        message:'Anyone you want to credit?'
     },
     {
         type: 'input',
-        name:'Features',
-        message:'Is their any features you would like include?'
+        name:'features',
+        message:'Are there any features you would like to include?'
     },
     {
         type: 'input',
-        name:'Contributions',
-        message:'how can people contribute to your project?'
+        name:'contributions',
+        message:'How can people contribute to your project?'
     },
     {
         type: 'input',
-        name:'Tests',
-        message:'Any tests you wanna include'
+        name:'tests',
+        message:'Any tests you want to include?'
     },
     {
         type: 'list',
-        name: 'License',
-        choices:['MIT','ISC','GNUPLV3',]
+        name: 'license',
+        message: 'Choose a license for your project:',
+        choices:['MIT','ISC','GNUPLV3']
     }
 ];
 
-// TODO: Create a function to write README file
 function writeToFile(filename, data) {
-    fs.writeFile('README.md', data, (err) => {
+    fs.writeFile(filename, data, (err) => {
         if (err) throw err;
-        console.log('README.md file generated successfully!');
-      });
-      
-    inquirer.prompt(questions)
-    .then((answers) => {
-        const {title, description, tableOfContents, Installations, usage, credits, Features, Contributions, Tests, License } = answers
-        const data = `title: ${title}\ndescription: ${description}\ntableOfContents: ${tableOfContents}\nInstallations: ${Installations}\nusage: ${usage}\ncredits: ${credits}\nFeatures: ${Features}\nContributions: ${Contributions}\nTests: ${Tests}\nLicense: ${License}`;
-      writeToFile('README.md', data);
-    })
-    .catch((error) => {
-      console.log(error);
+        console.log(`${filename} file generated successfully!`);
     });
 }
 
-// TODO: Create a function to initialize app
 function init() {
-    inquirer.prompt(questions).then((data) => {
-        const markdown = generateMarkdown(data);
-        writeToFile('README.md', markdown);
-      });
+    inquirer.prompt(questions)
+        .then((data) => {
+            const markdown = generateMarkdown(data);
+            writeToFile('README.md', markdown);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
 }
 
-// Function call to initialize app
-init();
-
-
-
+init()
 
 
 

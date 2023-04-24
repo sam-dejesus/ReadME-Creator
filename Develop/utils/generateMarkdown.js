@@ -1,4 +1,4 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
+//  a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   if(license === 'MIT'){
@@ -16,7 +16,7 @@ function renderLicenseBadge(license) {
 }
 
 }
-// TODO: Create a function that returns the license link
+//  a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   if (license === 'MIT') {
@@ -32,7 +32,7 @@ function renderLicenseLink(license) {
 
 
 
-// TODO: Create a function that returns the license section of README
+//  a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
   if (license) {
@@ -44,17 +44,19 @@ This project is licensed under the [${license}](${renderLicenseLink(license)}) l
   }
 }
 
-// TODO: Create a function to generate markdown for README
+//  a function to generate markdown for README
 function generateMarkdown(data) {
+  
   return `# ${data.title}
   ## Description
 
 ${data.description}
 
-${renderLicenseSection(data.license)}
+
+
+
 
 ## Table of Contents
-
 ${data.tableOfContents.includes('installation') ? `- [Installation](#installation)` : ''}
 ${data.tableOfContents.includes('usage') ? `- [Usage](#usage)` : ''}
 ${data.tableOfContents.includes('credits') ? `- [Credits](#credits)` : ''}
@@ -62,9 +64,16 @@ ${data.tableOfContents.includes('features') ? `- [Features](#features)` : ''}
 ${data.tableOfContents.includes('how to contribute') ? `- [How to Contribute](#how-to-contribute)` : ''}
 ${data.tableOfContents.includes('test') ? `- [Test](#test)` : ''}
 
-${data.Installation ? `## Installation
 
-${data.Installation}` : ''}
+${renderLicenseSection(data.license)}
+
+
+
+
+
+${data.installation ? `## Installation
+
+${data.installation}` : ''}
 
 ${data.usages ? `## Usage
 
@@ -74,17 +83,17 @@ ${data.credits ? `## Credits
 
 ${data.credits}` : ''}
 
-${data.Features ? `## Features
+${data.features ? `## Features
 
-${data.Features}` : ''}
+${data.features}` : ''}
 
-${data.Contributions ? `## How to Contribute
+${data.contributions ? `## How to Contribute
 
-${data.Contributions}` : ''}
+${data.contributions}` : ''}
 
-${data.Tests ? `## Tests
+${data.tests ? `## Tests
 
-${data.Tests}` : ''}
+${data.tests}` : ''}
 
 `;
 }
