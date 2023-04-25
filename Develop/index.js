@@ -1,7 +1,9 @@
+
 const inquirer = require('inquirer')
 const fs = require('fs')
+//importing generateMarkdown.js from my utils folder
 const generateMarkdown = require('./utils/generateMarkdown')
-
+//questions that the program will ask the user
 const questions = [
     {
         type: 'input',
@@ -83,16 +85,26 @@ const questions = [
         name: 'license',
         message: 'Choose a license for your project:',
         choices:['MIT','ISC','GNUPLV3']
+    },
+    {
+        type: 'input',
+        name: 'questions1',
+        message: 'what is you email address?'
+    },
+    {
+        type: 'input',
+        name: 'questions2',
+        message: 'what is youe github username?'
     }
 ];
-
+// the function that will write the readme file 
 function writeToFile(filename, data) {
     fs.writeFile(filename, data, (err) => {
         if (err) throw err;
         console.log(`${filename} file generated successfully!`);
     });
 }
-
+// function that will start the program and send the data into the parameters of the writeToFile function
 function init() {
     inquirer.prompt(questions)
         .then((data) => {

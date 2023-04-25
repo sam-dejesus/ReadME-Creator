@@ -95,6 +95,12 @@ ${data.tests ? `## Tests
 
 ${data.tests}` : ''}
 
+
+${data.questions1, data.questions2 ? `## Questions
+
+if you have any questions please reach out at ${data.questions1} for my github account click the link https://github.com/${data.questions2}` : ''}
+
+
 `;
 }
 
