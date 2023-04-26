@@ -1,8 +1,8 @@
-# test
+# test 
 
 ## Description
 
-lorem
+sample text
 
 
 
@@ -27,11 +27,11 @@ This project is licensed under the [MIT](https://opensource.org/licenses/MIT) li
 
 ## Installation
 
-no
+sample text
 
 ## Usage
 
-lorem
+sample text
 
 ## Credits
 
@@ -43,7 +43,7 @@ no
 
 ## How to Contribute
 
-email me 
+sample text
 
 ## Tests
 
@@ -52,6 +52,6 @@ no
 
 ## Questions
 
-if you have any questions please reach out at sam@gmail.com for my github account click the link https://github.com/sam-dejesus
+if you have any questions please reach out at samuel@gmail.com for my github account click the link https://github.com/sam-dejesus
 
 
