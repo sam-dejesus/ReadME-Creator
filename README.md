@@ -7,7 +7,7 @@
 - [Credits](#credits)
 
 
-  ## Description
+## Description
 
 the reason for creating the ReadME file creator is to simplify the process of creating a readme file by answering questions and have the program sort the inforation using markup language.
 
